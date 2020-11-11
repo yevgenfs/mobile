@@ -11,22 +11,12 @@ import 'package:uuid/uuid.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
@@ -67,21 +57,10 @@ class _SearchPage extends  State<SearchPage> {
   Widget build(BuildContext context) {
     final weatherBloc = BlocProvider.of<WeatherBloc>(context);
 
-
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        //
-        // Center(
-        //     child: Container(
-        //       child: FlareActor("assets/WorldSpin.flr", fit: BoxFit.contain, animation: "roll",),
-        //       height: 300,
-        //       width: 300,
-        //     )
-        // ),
-
         BlocBuilder<WeatherBloc, WeatherState>(
           builder: (context, state) {
             if (state is WeatherIsNotSearched)
@@ -118,10 +97,7 @@ class _SearchPage extends  State<SearchPage> {
                               .getPlaceDetailFromId(result.placeId);
                           setState(() {
                             _controller.text = result.description;
-                            //    _streetNumber = placeDetails.streetNumber;
-                            //    _street = placeDetails.street;
                             _city = placeDetails.city;
-                            //      _zipCode = placeDetails.zipCode;
                           });
                         }
                       },
@@ -132,7 +108,6 @@ class _SearchPage extends  State<SearchPage> {
                           child: Icon(
                             Icons.home,
                             color: Colors.white,
-
                           ),
                         ),
                         hintText: "Enter your shipping address",
@@ -252,9 +227,6 @@ class ShowForecast extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-
-            // Text(weather.hour,style: TextStyle(color: Colors.white70, fontSize: 14),),
-            // Text(weather.getTemp.round().toString()+"C",style: TextStyle(color: Colors.white70, fontSize: 20),),
 
             Row(
                 children: <Widget>[
